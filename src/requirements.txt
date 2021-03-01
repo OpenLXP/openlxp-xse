@@ -1,0 +1,4 @@
+pandas==1.1.5
+boto3
+tqdm==4.57.0
+elasticsearch==7.11.0

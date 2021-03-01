@@ -4,8 +4,6 @@ import pandas as pd
 import boto3
 import tqdm
 
-from os.path import abspath, join, dirname, exists
-import tqdm
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import streaming_bulk
 
