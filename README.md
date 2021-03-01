@@ -19,9 +19,10 @@ Clone the OpenLXP git repo onto your local machine:
 git clone https://github.com/OpenLXP/openlxp-xse.git
 ```
 
-TO-DO: Build out docker compose / cluster configuration to bootstrap the installation and configuration of the cluster.
+**TO-DO: Build out docker compose / cluster configuration to bootstrap the installation and configuration of the cluster.**
 
 ====After ES cluster is stood up====
+
 To verify the cluster is running, run the below curl command from your Linux terminal or Windows CMD prompt. Note: you may need to update the 'Security Group' of your Elasticsearch EC2 instance to accept traffic on port 9200 from your IP address. Search 'whats my IP' in Google or your favorite serach engine to find out your local IP address.
 ```console
 curl -X GET "[public-ip-address-of-EC2-ES]:9200/_cat/health?v=true&pretty"
