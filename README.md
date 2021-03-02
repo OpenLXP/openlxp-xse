@@ -10,7 +10,7 @@ Intended use of this code is that a user could reference this code and architect
 
 The code in this repository leverages AWS infrastructure for hosting. Ideally, the code can be modified to run on any major cloud platform with parameter tweaks, but has not been verified. Additionally, the code within this repository is specifically for [Elasticsearch 7.11](https://www.elastic.co/guide/en/elasticsearch/reference/7.11/getting-started.html) as the search engine. We are utilizing Elasticsearch (ES) for representative purposes, users can leverage an additional search engine as it fits their budget and architecture.
 
-The helper script to load data from S3 into the ES instance has been tested with Python 3.6. Please ensure you have Python >=3.6 installed before executing the script.
+The helper script, `es-doc-gen.py`, to load data from S3 into the ES instance has been tested with Python 3.6. Please ensure you have Python >=3.6 installed before executing the script.
 
 ## Directions for use
 
@@ -23,7 +23,7 @@ git clone https://github.com/OpenLXP/openlxp-xse.git
 
 ====After ES cluster is stood up====
 
-To verify the cluster is running, run the below curl command from your Linux terminal or Windows CMD prompt. Note: you may need to update the 'Security Group' of your Elasticsearch EC2 instance to accept traffic on port 9200 from your IP address. Search 'whats my IP' in Google or your favorite serach engine to find out your local IP address.
+To verify the cluster is running, run the below curl command from your Linux terminal or Windows CMD prompt. **Note:** you may need to update the 'Security Group' of your Elasticsearch EC2 instance to accept traffic on port 9200 from your IP address. Search 'whats my IP' in Google or your favorite serach engine to find out your local IP address.
 ```console
 curl -X GET "[public-ip-address-of-EC2-ES]:9200/_cat/health?v=true&pretty"
 ```
@@ -40,7 +40,8 @@ Next, run the following command edit the document using 'nano' or a similar text
 nano es-doc-gen.py
 ```
 
-Within the `es-doc-gen.py` file, update the IP address for your ES instance and save the document. Be sure to use the *Public IP address* for the ES instance, which you can confirm on the AWS Console. Back on the terminal, update `my-index-name` `my-s3-bucket-name` `sample-DAU-data.json` to match the names of the index, S3 bucket, and JSON file of the sample DAU data. After doing so, run the following command:
+Within the `es-doc-gen.py` file, update the IP address for your ES instance and save the document. Be sure to use the *Public IP address* for the ES instance, which you can confirm on the AWS Console.
+Back on the terminal, update `my-index-name` `my-s3-bucket-name` `sample-DAU-data.json` to match the names of the index, S3 bucket, and JSON file of the sample DAU data. After doing so, run the following command:
 ```console
 python3 es-doc-gen.py 'my-index-name' 'my-s3-bucket-name' 'sample-DAU-data.json'
 ```
