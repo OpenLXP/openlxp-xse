@@ -29,7 +29,7 @@ def source_json_data(xia_bucket, path_to_json):
     """
     s3 = boto3.client('s3')
 
-    print('Requesting JSON from: s3://{}/{}').format(xia_bucket, path_to_json)
+    print('Requesting JSON from: s3://{}/{}'.format(xia_bucket, path_to_json))
     response = s3.get_object(Bucket=xia_bucket, Key=path_to_json)
     content = response['Body']
     print('Data loaded succesfully from S3.')
