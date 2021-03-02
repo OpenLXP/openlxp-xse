@@ -10,7 +10,7 @@ Intended use of this code is that a user could reference this code and architect
 
 The code in this repository leverages AWS infrastructure for hosting. Ideally, the code can be modified to run on any major cloud platform with parameter tweaks, but has not been verified. Additionally, the code within this repository is specifically for [Elasticsearch 7.11](https://www.elastic.co/guide/en/elasticsearch/reference/7.11/getting-started.html) as the search engine. We are utilizing Elasticsearch (ES) for representative purposes, users can leverage an additional search engine as it fits their budget and architecture.
 
-The helper script, `es-doc-gen.py`, to load data from S3 into the ES instance has been tested with Python 3.6. Please ensure you have Python >=3.6 installed before executing the script.
+The helper script, `dau_pipeline.py`, to load data from S3 into the ES instance has been tested with Python 3.6. Please ensure you have Python >=3.6 installed before executing the script.
 
 ## Directions for use
 
@@ -42,13 +42,13 @@ python3 pip3 install -r requirements.txt
 
 Next, run the following command edit the document using 'nano' or a similar text editor:
 ```console
-nano es-doc-gen.py
+nano dau_pipeline.py
 ```
 
-Within the `es-doc-gen.py` file, update the IP address for your ES instance and save the document. Be sure to use the *Public/Private IP address* for the ES instance, which you can confirm on the AWS Console. The IP address you select depends on whether the VM you're executing the pipeline is within the VPC (private IP) or outside (public IP) of the ES cluster.
+Within the `dau_pipeline.py` file, update the IP address for your ES instance and save the document. Be sure to use the *Public/Private IP address* for the ES instance, which you can confirm on the AWS Console. The IP address you select depends on whether the VM you're executing the pipeline is within the VPC (private IP) or outside (public IP) of the ES cluster.
 Back on the terminal, update `my-index-name` `my-s3-bucket-name` `sample-DAU-data.json` to match the names of the index, S3 bucket, and JSON file of the sample DAU data. After doing so, run the following command:
 ```console
-python3 es-doc-gen.py 'my-index-name' 'my-s3-bucket-name' 'sample-DAU-data.json'
+python3 dau_pipeline.py 'my-index-name' 'my-s3-bucket-name' 'sample-DAU-data.json'
 ```
 
 Success! You've now indexed sample course data into ES and it's ready to be queried. To verify the data has been loaded into ES correctly, try running the following script from your terminal:
