@@ -19,7 +19,7 @@ Clone the OpenLXP git repo onto your local machine:
 git clone https://github.com/OpenLXP/openlxp-xse.git
 ```
 
-Navigate into the 'openlxp-xse' directory, ensure `docker-compse.yml` file is in the directory and run the following commands:
+Navigate into the 'openlxp-xse' directory, ensure `docker-compose.yml` file is in the directory and run the following commands:
 ```console
 sudo sysctl -w vm.max_map_count=262144
 sudo docker-compose up -d
