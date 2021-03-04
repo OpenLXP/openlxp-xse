@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  creationTimestamp: null
+  name: openlxpxse_elastic
+spec:
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              io.kompose.network/openlxpxse_elastic: "true"
+  podSelector:
+    matchLabels:
+      io.kompose.network/openlxpxse_elastic: "true"
