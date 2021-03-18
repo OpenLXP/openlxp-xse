@@ -3,6 +3,7 @@ kind: NetworkPolicy
 metadata:
   creationTimestamp: null
   name: openlxpxse_elastic
+  namespace: elasticsearch ##TO-DO: update this to dynamically update with variable from Terraform
 spec:
   ingress:
     - from:

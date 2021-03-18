@@ -5,6 +5,7 @@ metadata:
   labels:
     io.kompose.service: openlxpxse-data02
   name: openlxpxse-data02
+  namespace: elasticsearch ##TO-DO: update this to dynamically update with variable from Terraform
 spec:
   accessModes:
     - ReadWriteOnce

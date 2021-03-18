@@ -8,6 +8,7 @@ metadata:
   labels:
     io.kompose.service: es03
   name: es03
+  namespace: elasticsearch ##TO-DO: update this to dynamically update with variable from Terraform
 spec:
   replicas: 1
   selector:
